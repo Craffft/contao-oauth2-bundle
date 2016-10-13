@@ -13,7 +13,6 @@
 namespace Tests\Craffft\ContaoOAuth2Bundle;
 
 use Craffft\ContaoOAuth2Bundle\CraffftContaoOAuth2Bundle;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class CraffftContaoOAuth2BundleTest extends \PHPUnit_Framework_TestCase
 {
