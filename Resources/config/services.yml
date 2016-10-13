@@ -1,0 +1,9 @@
+services:
+
+    # Security
+    craffft.contao_oauth2.user_provider:
+        class: Craffft\ContaoOAuth2Bundle\Security\UserProvider
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    craffft.contao_oauth2.contao_password_encoder:
+        class: Craffft\ContaoOAuth2Bundle\Security\Core\Encoder\ContaoPasswordEncoder

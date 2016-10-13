@@ -1,0 +1,39 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+
+sudo: false
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 5.3
+      env: COMPOSER_FLAGS="--prefer-lowest"
+    - php: 5.6
+      env: SYMFONY_VERSION="2.7.*"
+    - php: 5.6
+      env: SYMFONY_VERSION="2.8.*" DEPENDENCIES=dev
+    - php: 5.6
+      env: DEPENDENCIES=dev
+  allow_failures:
+  - env: DEPENDENCIES=dev
+
+before_install:
+  - composer self-update
+  - if [ "$SYMFONY_VERSION" != "" ]; then composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; fi;
+
+install:
+  - composer update --prefer-dist --no-interaction $COMPOSER_FLAGS
+
+script:
+  - phpunit -v --coverage-text
+
+notifications:
+  slack:
+    secure: r1ioTPWrMK73mgqJzww7T93VmSOjxcH4e4EiGFJ5aBNWpTOuN8Kn7/vcpwmCEcFBZcvISTOUx+ODESQjd26hn7J8+gsFNKQJabab+cFQeoz7Q1A0c++uUzk1fVPCSdxkzOnW06zhSvhLNV0MmUCzaxYsI6EbdoGfNwokngUesaO+c2lnqgmkakBI+Ra5LsHXobYmvKkXHTCVoKKRnQquw8agfwww1jp3jKGtl/YoQMGAHNyMpNThc8VB02Dfr6M03UsQRGEc9OUqyqhwZpDPcONyvtsl542cUXvw7unif8asOIQ78Luv1TiunmC5Oz9QO4wdJq21vR+Bx+lTph+N80R++9if+dQxkSDqOWd1DEkHtO3BYoF2+o9tYEygXQah+YXeoa6jN86zM06sp4+RsxxZxJSZM0MkTp80yf1vSkpK2pTGBTm1TiotzhSXf3ouIG5k60KQJqsHbRmuBIlDSluG1QFe9f0IuuncNv1QbsHH+oM3dXE9a8PMaIdcVmJ+oNFvVdy4LhjE6hjlqSjjf79Rxpn29iM5KQU1J/TXoBbjVv3Ztww0wwhBknw9x19tgtMN9kc6csBcUfRBry0OZ6Bu0UG0MFTMYImbRbVNbk4KgsIp68ZvSGC4C0SwkF1MzpkMNFDhvtLS32rnr+XDjAy5HvuUIlKbVMklcCIJl2A=
