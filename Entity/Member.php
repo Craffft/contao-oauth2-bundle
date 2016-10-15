@@ -162,9 +162,9 @@ class Member implements UserInterface, \Serializable
     /**
      * @var boolean
      *
-     * @ORM\Column(type="boolean", nullable=false, options={"default"=0, "unsigned"=true})
+     * @ORM\Column(type="array", nullable=false)
      */
-    private $groups = '0';
+    private $groups = '';
 
     /**
      * @var string

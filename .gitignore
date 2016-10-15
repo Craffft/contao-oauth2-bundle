@@ -8,3 +8,4 @@ composer.phar
 composer.lock
 phpunit.xml
 Tests/Controller/App/*/
+Tests/Controller/App/sqlite.db.cache

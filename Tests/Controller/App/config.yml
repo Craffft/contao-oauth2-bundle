@@ -1,0 +1,25 @@
+# Framework configuration
+framework:
+    secret: secret
+    test: ~
+    validation: { enable_annotations: true }
+    csrf_protection: ~
+    session:
+        storage_id: session.storage.filesystem
+
+# Doctrine configuration
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        dbname:   "testdb"
+        memory:   true
+        path:     %kernel.root_dir%/sqlite.db.cache
+        charset:  UTF8
+        host:     "-"
+        port:     "-"
+        user:     "-"
+        password: "-"
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true

@@ -19,7 +19,7 @@ class MemberRepository extends EntityRepository
     {
         return $this->createQueryBuilder('u')
             ->where('u.username = :username')
-            ->andWhere('u.disable = 0')
+            ->andWhere('u.disable != 1')
             ->andWhere("u.start <= :tstamp OR u.start = ''")
             ->andWhere("u.stop >= :tstamp OR u.stop = ''")
             ->setParameter('username', $username)
