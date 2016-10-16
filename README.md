@@ -92,3 +92,12 @@ security:
             stateless: true                            # Do no set session cookies
             anonymous: false                           # Anonymous access is not allowed
 ```
+
+### Step 4: Generate database tables
+
+Please update your database with the following command, because the
+contao install tool will not generate the symfony relevant tables.
+
+```bash
+php app/console doctrine:schema:update --force
+```
