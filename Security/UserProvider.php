@@ -11,8 +11,8 @@
 
 namespace Craffft\ContaoOAuth2Bundle\Security;
 
+use Craffft\ContaoOAuth2Bundle\Entity\Member;
 use Doctrine\ORM\EntityManager;
-use Craffft\ContaoOAuth2Bundle\Repository\UserRepository;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -20,16 +20,17 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 class UserProvider implements UserProviderInterface
 {
     private $em;
+    private $memberEntity;
 
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManager $entityManager, $memberEntity)
     {
         $this->em = $entityManager;
+        $this->memberEntity = $memberEntity;
     }
 
     public function loadUserByUsername($username)
     {
-        /** @var UserRepository $userRepository */
-        $userRepository = $this->em->getRepository('CraffftContaoOAuth2Bundle:Member');
+        $userRepository = $this->em->getRepository($this->memberEntity);
 
         return $userRepository->findOneByUsername($username);
     }
@@ -41,6 +42,6 @@ class UserProvider implements UserProviderInterface
 
     public function supportsClass($class)
     {
-        return 'Craffft\ContaoOAuth2Bundle\Entity\Member' === $class;
+        return class_exists($this->memberEntity) && $this->memberEntity === $class;
     }
 }
