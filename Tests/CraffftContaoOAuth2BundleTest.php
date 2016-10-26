@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\Craffft\ContaoOAuth2Bundle;
+namespace Craffft\ContaoOAuth2Bundle\Tests;
 
 use Craffft\ContaoOAuth2Bundle\CraffftContaoOAuth2Bundle;
 

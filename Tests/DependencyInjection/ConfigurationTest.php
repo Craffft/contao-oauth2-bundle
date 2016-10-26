@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\Craffft\ContaoOAuth2Bundle\DependencyInjection;
+namespace Craffft\ContaoOAuth2Bundle\Tests\DependencyInjection;
 
 use Craffft\ContaoOAuth2Bundle\DependencyInjection\Configuration;
 

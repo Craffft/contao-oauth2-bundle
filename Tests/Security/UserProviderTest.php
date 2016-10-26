@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\Craffft\ContaoOAuth2Bundle\Security;
+namespace Craffft\ContaoOAuth2Bundle\Tests\Security;
 
 use Craffft\ContaoOAuth2Bundle\Security\UserProvider;
 use Craffft\ContaoOAuth2Bundle\Tests\Setup\AbstractInMemoryTestSetup;

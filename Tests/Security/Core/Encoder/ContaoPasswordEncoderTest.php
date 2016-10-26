@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\Craffft\ContaoOAuth2Bundle\Security\Core\Encoder;
+namespace Craffft\ContaoOAuth2Bundle\Tests\Security\Core\Encoder;
 
 use Craffft\ContaoOAuth2Bundle\Security\Core\Encoder\ContaoPasswordEncoder;
 
