@@ -38,7 +38,8 @@ class AppKernel extends Kernel
         $bundles = array(
             // ...
 
-            // Add both!
+            // Add them all!
+            new Contao\CoreBundle\HttpKernel\Bundle\ContaoModuleBundle('multicolumnwizard', $this->getRootDir()),
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new Craffft\ContaoOAuth2Bundle\CraffftContaoOAuth2Bundle(),
         );
