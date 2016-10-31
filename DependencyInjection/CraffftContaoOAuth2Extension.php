@@ -35,7 +35,9 @@ class CraffftContaoOAuth2Extension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
+        $container->setParameter('craffft_contao_oauth2.extend_member', $config['extend_member']);
         $container->setParameter('craffft_contao_oauth2.member_entity', $config['member_entity']);
+        $container->setParameter('craffft_contao_oauth2.member_repository', $config['member_repository']);
     }
 
     /**

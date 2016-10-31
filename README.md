@@ -38,6 +38,8 @@ class AppKernel extends Kernel
         $bundles = array(
             // ...
 
+            // Add both!
+            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new Craffft\ContaoOAuth2Bundle\CraffftContaoOAuth2Bundle(),
         );
 
@@ -57,6 +59,17 @@ your project:
 # app/config/config.yml
 
 # ...
+# Doctrine configuration
+doctrine:
+    dbal:
+        # ...
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# ...
+
 # FOS OAuth2 Server Bundle
 fos_oauth_server:
     db_driver: orm
@@ -94,6 +107,13 @@ security:
 ```
 
 ### Step 4: Generate database tables
+
+Change your database tables to InnoDB to prevent schema update errors.
+
+```sql
+ALTER TABLE tl_member ENGINE=InnoDB;
+ALTER TABLE tl_oauth_client ENGINE=InnoDB;
+```
 
 Please update your database with the following command, because the
 contao install tool will not generate the symfony relevant tables.

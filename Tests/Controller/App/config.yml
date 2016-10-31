@@ -23,3 +23,8 @@ doctrine:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        #resolve_target_entities:
+        #    Craffft\ContaoOAuth2Bundle\Entity\Member: Craffft\ContaoOAuth2Bundle\Entity\Member
+
+# Craffft OAuth2
+craffft_contao_oauth2:

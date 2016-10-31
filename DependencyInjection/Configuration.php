@@ -31,7 +31,17 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('member_entity')->end()
+                ->booleanNode('extend_member')
+                    ->defaultFalse()
+                ->end()
+                ->scalarNode('member_entity')
+                    ->defaultValue('Craffft\ContaoOAuth2Bundle\Entity\Member')
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('member_repository')
+                    ->defaultValue('Craffft\ContaoOAuth2Bundle\Repository\MemberRepository')
+                    ->cannotBeEmpty()
+                ->end()
             ->end()
         ;
 

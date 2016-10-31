@@ -27,7 +27,7 @@ class UserProviderTest extends AbstractInMemoryTestSetup
     {
         parent::setUp();
 
-        $this->userProvider = new UserProvider($this->em);
+        $this->userProvider = new UserProvider($this->em, 'Craffft\\ContaoOAuth2Bundle\\Entity\\Member');
     }
 
     public function testLoadUserByUsername()

@@ -30,6 +30,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * )
  * @ORM\Entity(repositoryClass="Craffft\ContaoOAuth2Bundle\Repository\MemberRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @ORM\MappedSuperclass
  */
 class Member implements UserInterface, \Serializable
 {
@@ -45,245 +46,252 @@ class Member implements UserInterface, \Serializable
      *
      * @ORM\Column(type="integer", nullable=false, options={"default"=0, "unsigned"=true})
      */
-    private $tstamp = '0';
+    protected $tstamp = '0';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=false, options={"default"=""})
      */
-    private $firstname = '';
+    protected $firstname = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=false, options={"default"=""})
      */
-    private $lastname = '';
+    protected $lastname = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="dateOfBirth", type="string", length=11, nullable=false, options={"default"=""})
      */
-    private $dateOfBirth = '';
+    protected $dateOfBirth = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=32, nullable=false, options={"default"=""})
      */
-    private $gender = '';
+    protected $gender = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=false, options={"default"=""})
      */
-    private $company = '';
+    protected $company = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=false, options={"default"=""})
      */
-    private $street = '';
+    protected $street = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=32, nullable=false, options={"default"=""})
      */
-    private $postal = '';
+    protected $postal = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=false, options={"default"=""})
      */
-    private $city = '';
+    protected $city = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=64, nullable=false, options={"default"=""})
      */
-    private $state = '';
+    protected $state = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=2, nullable=false, options={"default"=""})
      */
-    private $country = '';
+    protected $country = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=64, nullable=false, options={"default"=""})
      */
-    private $phone = '';
+    protected $phone = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=64, nullable=false, options={"default"=""})
      */
-    private $mobile = '';
+    protected $mobile = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=64, nullable=false, options={"default"=""})
      */
-    private $fax = '';
+    protected $fax = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=false, options={"default"=""})
      */
-    private $email = '';
+    protected $email = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=false, options={"default"=""})
      */
-    private $website = '';
+    protected $website = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=5, nullable=false, options={"default"=""})
      */
-    private $language = '';
+    protected $language = '';
 
     /**
      * @var boolean
      *
      * @ORM\Column(type="array", columnDefinition="blob NULL")
      */
-    private $groups = '';
+    protected $groups = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=1, nullable=false, options={"default"="", "fixed"=true})
      */
-    private $login = '';
+    protected $login = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=64, nullable=true)
      */
-    private $username;
+    protected $username;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=128, nullable=false, options={"default"=""})
      */
-    private $password = '';
+    protected $password = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="assignDir", type="string", length=1, nullable=false, options={"default"="", "fixed"=true})
      */
-    private $assignDir = '';
+    protected $assignDir = '';
 
     /**
      * @var binary
      *
      * @ORM\Column(name="homeDir", type="binary", length=16, nullable=true, options={"fixed"=true})
      */
-    private $homeDir = '';
+    protected $homeDir = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=1, nullable=false, options={"default"="", "fixed"=true})
      */
-    private $disable = '';
+    protected $disable = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=10, nullable=false, options={"default"=""})
      */
-    private $start = '';
+    protected $start = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=10, nullable=false, options={"default"=""})
      */
-    private $stop = '';
+    protected $stop = '';
 
     /**
      * @var integer
      *
      * @ORM\Column(name="dateAdded", type="integer", nullable=false, options={"default"=0, "unsigned"=true})
      */
-    private $dateAdded = '0';
+    protected $dateAdded = '0';
 
     /**
      * @var integer
      *
      * @ORM\Column(name="lastLogin", type="integer", nullable=false, options={"default"=0, "unsigned"=true})
      */
-    private $lastLogin = '0';
+    protected $lastLogin = '0';
 
     /**
      * @var integer
      *
      * @ORM\Column(name="currentLogin", type="integer", nullable=false, options={"default"=0, "unsigned"=true})
      */
-    private $currentLogin = '0';
+    protected $currentLogin = '0';
 
     /**
      * @var integer
      *
      * @ORM\Column(name="loginCount", type="smallint", nullable=false, options={"default"=3, "unsigned"=true})
      */
-    private $loginCount = '3';
+    protected $loginCount = '3';
 
     /**
      * @var integer
      *
      * @ORM\Column(type="integer", nullable=false, options={"default"=0, "unsigned"=true})
      */
-    private $locked = '0';
+    protected $locked = '0';
 
     /**
      * @var string
      *
      * @ORM\Column(type="blob", length=65535, nullable=true)
      */
-    private $session;
+    protected $session;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=32, nullable=true)
      */
-    private $autologin;
+    protected $autologin;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="createdOn", type="integer", nullable=false, options={"default"=0, "unsigned"=true})
      */
-    private $createdOn = '0';
+    protected $createdOn = '0';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=32, nullable=false, options={"default"=""})
      */
-    private $activation = '';
+    protected $activation = '';
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="array", columnDefinition="blob NULL")
+     */
+    protected $newsletter = '';
 
 
     /**
@@ -1136,6 +1144,30 @@ class Member implements UserInterface, \Serializable
         return $this->activation;
     }
 
+    /**
+     * Set newsletter
+     *
+     * @param string $newsletter
+     *
+     * @return Member
+     */
+    public function setNewsletter($newsletter)
+    {
+        $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    /**
+     * Get newsletter
+     *
+     * @return string
+     */
+    public function getNewsletter()
+    {
+        return $this->newsletter;
+    }
+
 
     /**
      * @return array
@@ -1202,7 +1234,8 @@ class Member implements UserInterface, \Serializable
             $this->session,
             $this->autologin,
             $this->createdOn,
-            $this->activation
+            $this->activation,
+            $this->newsletter
         ));
     }
 
@@ -1247,7 +1280,8 @@ class Member implements UserInterface, \Serializable
             $this->session,
             $this->autologin,
             $this->createdOn,
-            $this->activation
+            $this->activation,
+            $this->newsletter
             ) = unserialize($serialized);
     }
 }

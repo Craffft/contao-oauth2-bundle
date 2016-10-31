@@ -7,3 +7,9 @@ services:
 
     craffft.contao_oauth2.contao_password_encoder:
         class: Craffft\ContaoOAuth2Bundle\Security\Core\Encoder\ContaoPasswordEncoder
+
+    craffft.contao_oauth2.dynamic_relation_subscriber:
+        class: Craffft\ContaoOAuth2Bundle\EventListener\DynamicRelationSubscriber
+        arguments: ["%craffft_contao_oauth2.extend_member%", "%craffft_contao_oauth2.member_repository%"]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
