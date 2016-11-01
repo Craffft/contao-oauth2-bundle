@@ -82,6 +82,18 @@ fos_oauth_server:
         user_provider: craffft.contao_oauth2.user_provider
 ```
 
+Import the routing.yml configuration file in app/config/routing.yml:
+
+```yml
+# app/config/routing.yml
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+```
+
 Copy the content of `vendor/contao/core-bundle/src/Resources/config/security.yml`
 file and replace `app/config/security.yml` file with it. Than amend it with the
 following code:
