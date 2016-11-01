@@ -24,7 +24,7 @@ class DynamicRelationSubscriber implements EventSubscriber
      * @param bool $extendMember
      * @param string $memberEntity
      */
-    public function __construct(bool $extendMember, string $memberRepository)
+    public function __construct($extendMember, $memberRepository)
     {
         $this->extendMember = $extendMember;
         $this->memberRepository = $memberRepository;
