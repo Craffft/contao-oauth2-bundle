@@ -1,12 +1,13 @@
 {
     "name": "craffft/contao-oauth2-bundle",
-    "type": "symfony-bundle",
+    "type": "contao-bundle",
     "description": "ContaoOAuth2Bundle for Symfony with Contao",
     "keywords": [
         "oauth2",
         "contao",
         "authentication"
     ],
+    "homepage":"https://craffft.de",
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +20,8 @@
         "source": "https://github.com/Craffft/contao-oauth2-bundle"
     },
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.1",
+        "contao/core-bundle": "~4.4",
         "symfony/security": "~2.8|~3.0",
         "symfony/framework-bundle": "~2.8|~3.0",
         "symfony/http-kernel": "~2.8|~3.0",
@@ -30,16 +32,19 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
-        "doctrine/doctrine-fixtures-bundle": "^2.3"
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "contao/manager-plugin": "^2.0"
+    },
+    "conflict": {
+        "contao/core": "*",
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "extra": {
+        "contao-manager-plugin": "Craffft\\ApiClientBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
             "Craffft\\ContaoOAuth2Bundle\\": ""
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
         }
     }
 }
